@@ -1,0 +1,51 @@
+<div *ngIf="product() as p" class="p-6 max-w-3xl mx-auto">
+  <div class="flex flex-col md:flex-row gap-6">
+    <img [src]="p.image" class="w-64 h-64 object-contain" alt="Product Image" />
+    <div class="flex flex-col gap-4">
+      <h1 class="text-2xl font-bold">{{ p.title }}</h1>
+      <p class="text-gray-600">{{ p.description }}</p>
+      <span class="text-xl font-semibold text-green-600"> ${{ p.price }} </span>
+
+      <!-- Rating -->
+      <div class="flex items-center gap-2">
+        <span class="text-yellow-500">★</span>
+        <span>{{ p.rating.rate }} ({{ p.rating.count }} reviews)</span>
+      </div>
+
+      <!-- Quantity & Add to Cart -->
+      <div class="flex items-center gap-4">
+        <input
+          type="number"
+          [(ngModel)]="quantity"
+          min="1"
+          class="border px-2 py-1 w-16"
+        />
+        <button
+          class="bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-600"
+          (click)="addToCart(p)"
+        >
+          Add to Cart
+        </button>
+      </div>
+
+      <!-- Rating Feature -->
+      <div class="mt-4">
+        <label class="block mb-2 font-semibold">Your Rating:</label>
+        <div class="flex items-center gap-1">
+          <ng-container *ngFor="let star of stars; let i = index">
+            <span
+              (click)="setRating(i + 1)"
+              (mouseover)="hoverRating = i + 1"
+              (mouseleave)="hoverRating = 0"
+              class="text-3xl cursor-pointer transition"
+              [class.text-yellow-400]="i + 1 <= (hoverRating || userRating)"
+              [class.text-gray-400]="i + 1 > (hoverRating || userRating)"
+            >
+              ★
+            </span>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
