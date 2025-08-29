@@ -8,27 +8,43 @@ import { CartService } from '../../../services/cart.service';
   imports: [ButtonComponent],
   template: `
     <div
-      class="bg-white shadow-md border rounded-xl p-6 flex gap-4 items-center"
+      class="bg-white shadow-lg border rounded-xl p-4 md:p-6 flex flex-col md:flex-row items-center gap-4 md:gap-6 hover:shadow-xl transition"
     >
-      <img [src]="item().image" class="w-[50px] h-[50px] object-contain" />
-      <div class="flex flex-col">
-        <span class="text-md font-bold">{{ item().title }}</span>
-        <span class="text-sm"> {{ '$' + item().price }} </span>
+      <!-- Product Image -->
+      <div
+        class="flex-shrink-0 w-24 h-24 md:w-28 md:h-28 flex items-center justify-center"
+      >
+        <img
+          [src]="item().image"
+          alt="Product"
+          class="max-h-full max-w-full object-contain rounded-lg"
+        />
+      </div>
+
+      <!-- Product Info -->
+      <div class="flex flex-col flex-1 gap-1 md:gap-2">
+        <span class="text-lg font-bold text-gray-800 line-clamp-2">{{
+          item().title
+        }}</span>
+        <span class="text-md text-gray-600">$ {{ item().price }}</span>
         <span class="text-sm text-gray-500"
           >Qty: {{ item().quantity || 1 }}</span
         >
       </div>
-      <div class="flex-1"></div>
-      <app-button
-        label="Remove"
-        (btnClicked)="cartService.removeFromCart(item())"
-      />
+
+      <!-- Remove Button -->
+      <div class="flex-shrink-0">
+        <app-button
+          label="Remove"
+          class="px-4 py-2 "
+          (btnClicked)="cartService.removeFromCart(item())"
+        />
+      </div>
     </div>
   `,
-  styles: ``,
+  styles: [],
 })
 export class CartItemComponent {
   item = input.required<Product>();
-
   cartService = inject(CartService);
 }

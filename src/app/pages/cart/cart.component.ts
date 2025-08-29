@@ -2,8 +2,6 @@ import { Component, inject } from '@angular/core';
 import { CartService } from '../../services/cart.service';
 import { CartItemComponent } from './cart-item/cart-item.component';
 import { OrderSummaryComponent } from './order-summary/order-summary.component';
-import { ButtonComponent } from '../../components/button/button.component';
-import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-cart',

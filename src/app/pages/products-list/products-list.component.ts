@@ -16,7 +16,18 @@ export type Product = {
   standalone: true,
   imports: [CommonModule, ProductCardComponent],
   template: `
-    <div class="p-8 flex flex-wrap gap-4 justify-center">
+    <!-- 🔍 Search Bar -->
+    <div class="p-4 flex justify-center">
+      <input
+        type="text"
+        placeholder="Search products..."
+        class="w-full sm:w-1/2 p-2 border rounded-lg shadow-sm "
+        (input)="search.set($any($event.target).value)"
+      />
+    </div>
+
+    <!-- Products -->
+    <div class="p-8 flex flex-wrap gap-12 justify-center">
       <ng-container *ngFor="let product of paginatedProducts()">
         <div class="w-full sm:w-1/2 md:w-1/4">
           <app-product-card [product]="product" />
@@ -37,18 +48,24 @@ export type Product = {
 })
 export class ProductsListComponent implements OnInit {
   products = signal<Product[]>([]);
+  search = signal('');
   currentPage = signal(1);
   itemsPerPage = 6;
 
-  // Compute products to display
+  // Filtered products based on search
+  filteredProducts = computed(() => {
+    const term = this.search().toLowerCase();
+    return this.products().filter((p) => p.title.toLowerCase().includes(term));
+  });
+
+  // Paginated + filtered products
   paginatedProducts = computed(() => {
-    const start = 0;
     const end = this.currentPage() * this.itemsPerPage;
-    return this.products().slice(start, end);
+    return this.filteredProducts().slice(0, end);
   });
 
   isAllLoaded = computed(() => {
-    return this.paginatedProducts().length >= this.products().length;
+    return this.paginatedProducts().length >= this.filteredProducts().length;
   });
 
   ngOnInit() {

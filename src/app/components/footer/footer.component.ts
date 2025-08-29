@@ -23,20 +23,22 @@ import { RouterModule } from '@angular/router';
           <h3 class="text-xl font-semibold mb-4">Quick Links</h3>
           <ul class="space-y-2">
             <li>
-              <a routerLink="/" class="hover:text-pink-400 transition">Home</a>
+              <a routerLink="/" class="hover:text-yellow-400 transition"
+                >Home</a
+              >
             </li>
             <li>
-              <a routerLink="/products" class="hover:text-pink-400 transition"
+              <a routerLink="/products" class="hover:text-yellow-400 transition"
                 >Shop</a
               >
             </li>
             <li>
-              <a routerLink="/about" class="hover:text-pink-400 transition"
+              <a routerLink="/about" class="hover:text-yellow-400 transition"
                 >About Us</a
               >
             </li>
             <li>
-              <a routerLink="/contact" class="hover:text-pink-400 transition"
+              <a routerLink="/contact" class="hover:text-yellow-400 transition"
                 >Contact</a
               >
             </li>
@@ -58,12 +60,12 @@ import { RouterModule } from '@angular/router';
         <div>
           <h3 class="text-xl font-semibold mb-4">Stay Connected</h3>
           <div class="flex space-x-4 mb-4">
-            <a href="#" class="hover:text-pink-400 transition">Facebook</a>
-            <a href="#" class="hover:text-pink-400 transition">Twitter</a>
-            <a href="#" class="hover:text-pink-400 transition">Instagram</a>
+            <a href="#" class="hover:text-yellow-400 transition">Facebook</a>
+            <a href="#" class="hover:text-yellow-400 transition">Twitter</a>
+            <a href="#" class="hover:text-yellow-400 transition">Instagram</a>
           </div>
           <p class="text-gray-400 mb-2">Subscribe to our newsletter</p>
-          <form class="flex gap-2">
+          <form class="flex gap-2 md:flex-row flex-col">
             <input
               type="email"
               placeholder="Your email"
@@ -71,7 +73,7 @@ import { RouterModule } from '@angular/router';
             />
             <button
               type="submit"
-              class="bg-pink-400 text-gray-900 px-4 rounded-lg hover:bg-pink-500 transition"
+              class="bg-yellow-400 text-gray-900 p-4 md:px-4 md:py-0 rounded-lg hover:bg-yellow-500 transition"
             >
               Subscribe
             </button>

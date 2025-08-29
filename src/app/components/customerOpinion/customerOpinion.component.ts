@@ -42,7 +42,7 @@ export type Opinion = {
               />
               <div>
                 <h3 class="font-semibold">{{ opinion.name }}</h3>
-                <div class="text-slate-500">★ {{ opinion.rating }}</div>
+                <div class="text-yellow-500">★ {{ opinion.rating }}</div>
               </div>
             </div>
             <p class="text-gray-700 text-sm">{{ opinion.comment }}</p>

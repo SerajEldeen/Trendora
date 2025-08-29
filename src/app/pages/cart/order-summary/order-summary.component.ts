@@ -13,7 +13,7 @@ import { PrimaryButtonComponent } from '../../../components/primary-button/prima
           <span class="text-lg">Total</span>
           <span class="text-lg font-bold">{{ '$ ' + total() }}</span>
         </div>
-        <app-primary-button label="Proceed to checkout" />
+        <app-primary-button label="Proceed to checkout" (click)="checkout()" />
       </div>
     </div>
   `,
@@ -30,4 +30,8 @@ export class OrderSummaryComponent {
 
     return total;
   });
+
+  checkout() {
+    this.cartService.clearCart();
+  }
 }
