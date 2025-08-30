@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ProductsListComponent } from '../../pages/products-list/products-list.component';
+import { ProductsListComponent } from '../products-list/products-list.component';
 
 @Component({
   selector: 'app-home',

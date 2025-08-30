@@ -1,12 +1,12 @@
 import { Component, computed, inject, signal } from '@angular/core';
 import { CartService } from '../../services/cart.service';
-import { RouterLink } from '@angular/router';
-import { CommonModule, NgIf } from '@angular/common'; // <- import NgIf
+import { RouterLink, RouterLinkActive } from '@angular/router';
+import { CommonModule, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterLink, CommonModule, NgIf], // <- add NgIf here
+  imports: [RouterLink, CommonModule, NgIf, RouterLinkActive],
   template: `
     <div
       class="bg-slate-100 px-4 py-3 shadow-md flex justify-between items-center relative"
@@ -23,18 +23,22 @@ import { CommonModule, NgIf } from '@angular/common'; // <- import NgIf
       <div class="hidden md:flex gap-6">
         <button
           routerLink="/"
+          routerLinkActive="text-pink-500 font-bold"
+          [routerLinkActiveOptions]="{ exact: true }"
           class="font-semibold hover:text-pink-500 transition"
         >
           Home
         </button>
         <button
           routerLink="/products"
+          routerLinkActive="text-pink-500 font-bold"
           class="font-semibold hover:text-pink-500 transition"
         >
           Products
         </button>
         <button
           routerLink="/about"
+          routerLinkActive="text-pink-500 font-bold"
           class="font-semibold hover:text-pink-500 transition"
         >
           About
@@ -67,6 +71,8 @@ import { CommonModule, NgIf } from '@angular/common'; // <- import NgIf
       >
         <button
           routerLink="/"
+          routerLinkActive="text-pink-500 font-bold"
+          [routerLinkActiveOptions]="{ exact: true }"
           class="font-semibold hover:text-pink-500 transition"
           (click)="closeMenu()"
         >
@@ -74,6 +80,7 @@ import { CommonModule, NgIf } from '@angular/common'; // <- import NgIf
         </button>
         <button
           routerLink="/products"
+          routerLinkActive="text-pink-500 font-bold"
           class="font-semibold hover:text-pink-500 transition"
           (click)="closeMenu()"
         >
@@ -81,6 +88,7 @@ import { CommonModule, NgIf } from '@angular/common'; // <- import NgIf
         </button>
         <button
           routerLink="/about"
+          routerLinkActive="text-pink-500 font-bold"
           class="font-semibold hover:text-pink-500 transition"
           (click)="closeMenu()"
         >

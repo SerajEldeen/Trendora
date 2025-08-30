@@ -29,7 +29,6 @@ export class ProductDetailComponent implements OnInit {
   addToCart(product: any) {
     const productWithQuantity = { ...product, quantity: this.quantity };
     this.cartService.addToCart(productWithQuantity);
-    console.log('Product added to cart:', productWithQuantity);
   }
 
   setRating(rating: number) {

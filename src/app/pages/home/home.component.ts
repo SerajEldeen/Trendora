@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HomeCarouselComponent } from '../carousel/carousel.component';
-import { BestSellerComponent } from '../bestSeller/bestseller.component';
-import { CustomerOpinionComponent } from '../customerOpinion/customerOpinion.component';
-import { WelcomeSectionComponent } from '../welcomeSection/welcomeSection.component';
-import { FooterComponent } from '../footer/footer.component';
+import { HomeCarouselComponent } from '../../components/carousel/carousel.component';
+import { BestSellerComponent } from '../../components/bestSeller/bestseller.component';
+import { CustomerOpinionComponent } from '../../components/customerOpinion/customerOpinion.component';
+import { WelcomeSectionComponent } from '../../components/welcomeSection/welcomeSection.component';
+import { FooterComponent } from '../../components/footer/footer.component';
 
 @Component({
   selector: 'app-home',

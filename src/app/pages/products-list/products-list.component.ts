@@ -1,8 +1,9 @@
-import { Component, signal, OnInit, computed } from '@angular/core';
+import { Component, signal, OnInit, computed, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductCardComponent } from './product-card/product-card.component';
-
+import { ProductService } from '../../services/product.service';
 export type Product = {
+  rating: any;
   id: number;
   title: string;
   price: number;
@@ -47,7 +48,8 @@ export type Product = {
   `,
 })
 export class ProductsListComponent implements OnInit {
-  products = signal<Product[]>([]);
+  productService = inject(ProductService);
+  products = this.productService.products;
   search = signal('');
   currentPage = signal(1);
   itemsPerPage = 6;
@@ -69,18 +71,7 @@ export class ProductsListComponent implements OnInit {
   });
 
   ngOnInit() {
-    fetch('https://fakestoreapi.com/products')
-      .then((res) => res.json())
-      .then((data) => {
-        const productsWithStock = data.map((p: any) => ({
-          id: p.id,
-          title: p.title,
-          price: p.price,
-          image: p.image,
-          stock: Math.floor(Math.random() * 10),
-        }));
-        this.products.set(productsWithStock);
-      });
+    this.productService.fetchProducts();
   }
 
   loadMore() {
