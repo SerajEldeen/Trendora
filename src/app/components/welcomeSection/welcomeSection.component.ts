@@ -11,7 +11,7 @@ import { RouterModule } from '@angular/router';
       class="bg-gradient-to-r from-purple-600 to-pink-500 text-white py-24 px-6 md:px-12 rounded-lg shadow-lg relative overflow-hidden"
     >
       <h1 class="text-4xl md:text-5xl font-bold mb-4">
-        Welcome to <span class="text-yellow-300">ShopEasy</span>
+        Welcome to <span class="text-yellow-300">Trendora</span>
       </h1>
       <p class="text-lg md:text-xl mb-6">
         Discover top-quality products at amazing prices. Fast delivery
