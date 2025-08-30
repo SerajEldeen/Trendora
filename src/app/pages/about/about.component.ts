@@ -27,13 +27,13 @@ import { CommonModule } from '@angular/common';
       <div class="flex flex-wrap justify-center gap-4 mb-8">
         <span
           class="px-4 py-2 bg-gray-800 text-white rounded-full cursor-pointer
-           transition transform hover:scale-110 hover:bg-pink-500"
+          transition transform hover:scale-110 hover:bg-pink-500"
         >
           Angular
         </span>
         <span
           class="px-4 py-2 bg-gray-800 text-white rounded-full cursor-pointer
-           transition transform hover:scale-110 hover:bg-pink-500"
+            transition transform hover:scale-110 hover:bg-pink-500"
         >
           TypeScript
         </span>
@@ -146,7 +146,7 @@ import { CommonModule } from '@angular/common';
               <a
                 href="https://fakestoreapi.com/products"
                 target="_blank"
-                class="text-pink-600 hover:underline"
+                class="text-pink-600 hover:underline block sm:inline"
                 >https://fakestoreapi.com/products</a
               >
               – Public API for fetching sample e-commerce products.

@@ -17,7 +17,7 @@ export type Product = {
   standalone: true,
   imports: [CommonModule, ProductCardComponent],
   template: `
-    <!-- 🔍 Search Bar -->
+    <!--  Search Bar -->
     <div class="p-4 flex justify-center">
       <input
         type="text"
@@ -28,7 +28,7 @@ export type Product = {
     </div>
 
     <!-- Products -->
-    <div class="p-8 flex flex-wrap gap-12 justify-center">
+    <div class="p-4 flex flex-wrap gap-12 justify-center">
       <ng-container *ngFor="let product of paginatedProducts()">
         <div class="w-full sm:w-1/2 md:w-1/4">
           <app-product-card [product]="product" />
