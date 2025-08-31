@@ -169,7 +169,7 @@ import { CommonModule } from '@angular/common';
         </div>
         <div class="p-6 bg-white shadow-lg rounded-2xl">
           <h3 class="text-xl font-semibold text-gray-800">
-            Mohab Adel Bassiouny
+            Mohab Adel Bassiony
           </h3>
         </div>
         <div class="p-6 bg-white shadow-lg rounded-2xl">
